@@ -9,8 +9,13 @@ var sport = {
     { name: 'LeBron James', age: 31 },
     { name: 'Kevin Durant', age: 28 }
   ],
-  playerNames: function () {
-    // YOUR CODE HERE
+  playerNames: function() {
+    let result = [];
+    this.players.forEach(element => {
+      let str = element.name + ' plays ' + this.name;
+      result.push(str);
+    });
+    return result;
   }
 };
 

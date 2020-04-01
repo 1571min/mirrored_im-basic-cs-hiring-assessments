@@ -16,47 +16,55 @@ exports.TimeComplexity = TimeComplexity;
 // Problem 1: Sum the squares of the values in a given array.
 
 /*
- * Complexity:
+ * Complexity: This function has [LINEAR time complexity], 
+  because reduce(function(memo, val) {
+    return memo + Math.pow(val, 2);
+  }); 
+  means linear repetition
  */
 
-exports.sumSquaresTimeComplexity = TimeComplexity.FIX_ME; // TODO: Update this constant
+exports.sumSquaresTimeComplexity = TimeComplexity.LINEAR; // TODO: Update this constant
 
 var sumSquares = function(array) {
   return array.reduce(function(memo, val) {
-    return memo + (Math.pow(val, 2));
+    return memo + Math.pow(val, 2);
   });
-};
-
-
+}; //O(lg(exponent))/*END SOLUTION*/
 // Problem 2: Calculate the n-th power of given number.
 
 /*
- * Complexity:
- */
-/*START SOLUTION*///O(lg(exponent))/*END SOLUTION*/
-exports.nthPowerTimeComplexity = TimeComplexity.FIX_ME; // TODO: Update this constant
+  Complexity: -This function has [LOGARITHMIC time complexity], 
+  because nthPower(base * base, exponent / 2); 
+  means Implementation of logarithmic format
+*/
+
+/*START SOLUTION*/ exports.nthPowerTimeComplexity = TimeComplexity.LOGARITHMIC; // TODO: Update this constant
 
 var nthPower = function(base, exponent) {
   // Base case:
   if (exponent === 0) {
     return 1;
-  // If exponent is odd
+    // If exponent is odd
   } else if (exponent % 2 !== 0) {
     return base * nthPower(base, exponent - 1);
-  // If exponent is even
+    // If exponent is even
   } else {
     return nthPower(base * base, exponent / 2);
   }
-};
-
+}; //O(3^n)/*END SOLUTION*/
 
 // Problem 3: Generate every sequence of throws for an n-round rock-paper-scissors game.
 
 /*
- * Complexity:
- */
-/*START SOLUTION*///O(3^n)/*END SOLUTION*/
-exports.rockPaperScissorsTimeComplexity = TimeComplexity.FIX_ME; // TODO: Update this constant
+  Complexity: -This function has [EXPONENTIAL time complexity], 
+  because 
+    plays.forEach(function(play) {
+    generate(sequence.concat(play), round + 1);
+  });
+  means Calling a recursive in a repeating sentence is EXPONENTIAL
+*/
+/*START SOLUTION*/ exports.rockPaperScissorsTimeComplexity =
+  TimeComplexity.EXPONENTIAL; // TODO: Update this constant
 
 var rockPaperScissors = function(rounds) {
   var sequences = [];
